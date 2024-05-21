@@ -329,14 +329,30 @@ unsigned int Lerc2::ComputeNumBytesNeededToWrite(const T* arr, double maxZError,
 
 // -------------------------------------------------------------------------- ;
 
+#ifdef LERC_SIGNED_CHAR
 template unsigned int Lerc2::ComputeNumBytesNeededToWrite<signed char>(const signed char* arr, double maxZError, bool encodeMask);
+#endif
+#ifdef LERC_BYTE
 template unsigned int Lerc2::ComputeNumBytesNeededToWrite<Byte>(const Byte* arr, double maxZError, bool encodeMask);
+#endif
+#ifdef LERC_SHORT
 template unsigned int Lerc2::ComputeNumBytesNeededToWrite<short>(const short* arr, double maxZError, bool encodeMask);
+#endif
+#ifdef LERC_UNSIGNED_SHORT
 template unsigned int Lerc2::ComputeNumBytesNeededToWrite<unsigned short>(const unsigned short* arr, double maxZError, bool encodeMask);
+#endif
+#ifdef LERC_INT
 template unsigned int Lerc2::ComputeNumBytesNeededToWrite<int>(const int* arr, double maxZError, bool encodeMask);
+#endif
+#ifdef LERC_UNSIGNED_INT
 template unsigned int Lerc2::ComputeNumBytesNeededToWrite<unsigned int>(const unsigned int* arr, double maxZError, bool encodeMask);
+#endif
+#ifdef LERC_FLOAT
 template unsigned int Lerc2::ComputeNumBytesNeededToWrite<float>(const float* arr, double maxZError, bool encodeMask);
+#endif
+#ifdef LERC_DOUBLE
 template unsigned int Lerc2::ComputeNumBytesNeededToWrite<double>(const double* arr, double maxZError, bool encodeMask);
+#endif
 
 // -------------------------------------------------------------------------- ;
 
@@ -428,14 +444,30 @@ bool Lerc2::Encode(const T* arr, Byte** ppByte)
 
 // -------------------------------------------------------------------------- ;
 
+#ifdef LERC_SIGNED_CHAR
 template bool Lerc2::Encode<signed char>(const signed char* arr, Byte** ppByte);
+#endif
+#ifdef LERC_BYTE
 template bool Lerc2::Encode<Byte>(const Byte* arr, Byte** ppByte);
+#endif
+#ifdef LERC_SHORT
 template bool Lerc2::Encode<short>(const short* arr, Byte** ppByte);
+#endif
+#ifdef LERC_UNSIGNED_SHORT
 template bool Lerc2::Encode<unsigned short>(const unsigned short* arr, Byte** ppByte);
+#endif
+#ifdef LERC_INT
 template bool Lerc2::Encode<int>(const int* arr, Byte** ppByte);
+#endif
+#ifdef LERC_UNSIGNED_INT
 template bool Lerc2::Encode<unsigned int>(const unsigned int* arr, Byte** ppByte);
+#endif
+#ifdef LERC_FLOAT
 template bool Lerc2::Encode<float>(const float* arr, Byte** ppByte);
+#endif
+#ifdef LERC_DOUBLE
 template bool Lerc2::Encode<double>(const double* arr, Byte** ppByte);
+#endif
 
 // -------------------------------------------------------------------------- ;
 
@@ -644,14 +676,31 @@ bool Lerc2::Decode(const Byte** ppByte, size_t& nBytesRemaining, T* arr, Byte* p
 
 // -------------------------------------------------------------------------- ;
 
+#ifdef LERC_SIGNED_CHAR
 template bool Lerc2::Decode<signed char>(const Byte** ppByte, size_t& nBytesRemaining, signed char* arr, Byte* pMaskBits);
+#endif
+#ifdef LERC_BYTE
 template bool Lerc2::Decode<Byte>(const Byte** ppByte, size_t& nBytesRemaining, Byte* arr, Byte* pMaskBits);
+#endif
+#ifdef LERC_SHORT
 template bool Lerc2::Decode<short>(const Byte** ppByte, size_t& nBytesRemaining, short* arr, Byte* pMaskBits);
+#endif
+#ifdef LERC_UNSIGNED_SHORT
 template bool Lerc2::Decode<unsigned short>(const Byte** ppByte, size_t& nBytesRemaining, unsigned short* arr, Byte* pMaskBits);
+#endif
+#ifdef LERC_INT
 template bool Lerc2::Decode<int>(const Byte** ppByte, size_t& nBytesRemaining, int* arr, Byte* pMaskBits);
+#endif
+#ifdef LERC_UNSIGNED_INT
 template bool Lerc2::Decode<unsigned int>(const Byte** ppByte, size_t& nBytesRemaining, unsigned int* arr, Byte* pMaskBits);
+#endif
+#ifdef LERC_FLOAT
 template bool Lerc2::Decode<float>(const Byte** ppByte, size_t& nBytesRemaining, float* arr, Byte* pMaskBits);
+#endif
+#ifdef LERC_DOUBLE
 template bool Lerc2::Decode<double>(const Byte** ppByte, size_t& nBytesRemaining, double* arr, Byte* pMaskBits);
+#endif
+
 
 // -------------------------------------------------------------------------- ;
 // -------------------------------------------------------------------------- ;

@@ -44,14 +44,30 @@ ErrCode Lerc::ComputeCompressedSize(const void* pData, int version, DataType dt,
 
   switch (dt)
   {
+#ifdef LERC_SIGNED_CHAR
   case DT_Char:    return ComputeCompressedSizeTempl((const signed char*)pData, LERC_ARG_1);
+#endif
+#ifdef LERC_BYTE
   case DT_Byte:    return ComputeCompressedSizeTempl((const Byte*)pData, LERC_ARG_1);
+#endif
+#ifdef LERC_SHORT
   case DT_Short:   return ComputeCompressedSizeTempl((const short*)pData, LERC_ARG_1);
+#endif
+#ifdef LERC_UNSIGNED_SHORT
   case DT_UShort:  return ComputeCompressedSizeTempl((const unsigned short*)pData, LERC_ARG_1);
+#endif
+#ifdef LERC_INT
   case DT_Int:     return ComputeCompressedSizeTempl((const int*)pData, LERC_ARG_1);
+#endif
+#ifdef LERC_UNSIGNED_INT
   case DT_UInt:    return ComputeCompressedSizeTempl((const unsigned int*)pData, LERC_ARG_1);
+#endif
+#ifdef LERC_FLOAT
   case DT_Float:   return ComputeCompressedSizeTempl((const float*)pData, LERC_ARG_1);
+#endif
+#ifdef LERC_DOUBLE
   case DT_Double:  return ComputeCompressedSizeTempl((const double*)pData, LERC_ARG_1);
+#endif
 
   default:
     return ErrCode::WrongParam;
@@ -70,14 +86,30 @@ ErrCode Lerc::Encode(const void* pData, int version, DataType dt, int nDepth, in
 
   switch (dt)
   {
+#ifdef LERC_SIGNED_CHAR
   case DT_Char:    return EncodeTempl((const signed char*)pData, LERC_ARG_2);
+#endif
+#ifdef LERC_BYTE
   case DT_Byte:    return EncodeTempl((const Byte*)pData, LERC_ARG_2);
+#endif
+#ifdef LERC_SHORT
   case DT_Short:   return EncodeTempl((const short*)pData, LERC_ARG_2);
+#endif
+#ifdef LERC_UNSIGNED_SHORT
   case DT_UShort:  return EncodeTempl((const unsigned short*)pData, LERC_ARG_2);
+#endif
+#ifdef LERC_INT
   case DT_Int:     return EncodeTempl((const int*)pData, LERC_ARG_2);
+#endif
+#ifdef LERC_UNSIGNED_INT
   case DT_UInt:    return EncodeTempl((const unsigned int*)pData, LERC_ARG_2);
+#endif
+#ifdef LERC_FLOAT
   case DT_Float:   return EncodeTempl((const float*)pData, LERC_ARG_2);
+#endif
+#ifdef LERC_DOUBLE
   case DT_Double:  return EncodeTempl((const double*)pData, LERC_ARG_2);
+#endif
 
   default:
     return ErrCode::WrongParam;
@@ -271,14 +303,30 @@ ErrCode Lerc::Decode(const Byte* pLercBlob, unsigned int numBytesBlob, int nMask
 
   switch (dt)
   {
+#ifdef LERC_SIGNED_CHAR
   case DT_Char:    return DecodeTempl((signed char*)pData, LERC_ARG_3);
+#endif
+#ifdef LERC_BYTE
   case DT_Byte:    return DecodeTempl((Byte*)pData, LERC_ARG_3);
+#endif
+#ifdef LERC_SHORT
   case DT_Short:   return DecodeTempl((short*)pData, LERC_ARG_3);
+#endif
+#ifdef LERC_UNSIGNED_SHORT
   case DT_UShort:  return DecodeTempl((unsigned short*)pData, LERC_ARG_3);
+#endif
+#ifdef LERC_INT
   case DT_Int:     return DecodeTempl((int*)pData, LERC_ARG_3);
+#endif
+#ifdef LERC_UNSIGNED_INT
   case DT_UInt:    return DecodeTempl((unsigned int*)pData, LERC_ARG_3);
+#endif
+#ifdef LERC_FLOAT
   case DT_Float:   return DecodeTempl((float*)pData, LERC_ARG_3);
+#endif
+#ifdef LERC_DOUBLE
   case DT_Double:  return DecodeTempl((double*)pData, LERC_ARG_3);
+#endif
 
   default:
     return ErrCode::WrongParam;
@@ -293,13 +341,27 @@ ErrCode Lerc::ConvertToDouble(const void* pDataIn, DataType dt, size_t nDataValu
 {
   switch (dt)
   {
+#ifdef LERC_SIGNED_CHAR
   case DT_Char:    return ConvertToDoubleTempl((const signed char*)pDataIn, nDataValues, pDataOut);
+#endif
+#ifdef LERC_BYTE
   case DT_Byte:    return ConvertToDoubleTempl((const Byte*)pDataIn, nDataValues, pDataOut);
+#endif
+#ifdef LERC_SHORT
   case DT_Short:   return ConvertToDoubleTempl((const short*)pDataIn, nDataValues, pDataOut);
+#endif
+#ifdef LERC_UNSIGNED_SHORT
   case DT_UShort:  return ConvertToDoubleTempl((const unsigned short*)pDataIn, nDataValues, pDataOut);
+#endif
+#ifdef LERC_INT
   case DT_Int:     return ConvertToDoubleTempl((const int*)pDataIn, nDataValues, pDataOut);
+#endif
+#ifdef LERC_UNSIGNED_INT
   case DT_UInt:    return ConvertToDoubleTempl((const unsigned int*)pDataIn, nDataValues, pDataOut);
+#endif
+#ifdef LERC_FLOAT
   case DT_Float:   return ConvertToDoubleTempl((const float*)pDataIn, nDataValues, pDataOut);
+#endif
   //case DT_Double:  no convert double to double
 
   default:
