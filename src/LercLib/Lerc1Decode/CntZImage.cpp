@@ -48,7 +48,7 @@ bool CntZImage::resizeFill0(int width, int height)
   if (!resize(width, height))
     return false;
 
-  memset(getData(), 0, width * height * sizeof(CntZ));
+  memset(getData(), 0, (size_t)width * height * sizeof(CntZ));
   return true;
 }
 
@@ -164,7 +164,7 @@ bool CntZImage::read(const Byte** ppByte, double maxZError, bool onlyHeader, boo
         // decompress to bit mask
         BitMask bitMask(width_, height_);
         RLE rle;
-        if (!rle.decompress(bArr, width_ * height_ * 2, (Byte*)bitMask.Bits(), bitMask.Size()))
+        if (!rle.decompress(bArr, (size_t)width_ * height_ * 2, (Byte*)bitMask.Bits(), bitMask.Size()))
           return false;
 
         CntZ* dstPtr = getData();

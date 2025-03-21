@@ -88,7 +88,7 @@ bool TImage< Element >::resize(int width, int height)
   width_ = 0;
   height_ = 0;
 
-  data_ = (Element*)malloc(width * height * sizeof(Element));
+  data_ = (Element*)malloc((size_t)width * height * sizeof(Element));
   if (!data_)
     return false;
 
